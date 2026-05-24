@@ -1,206 +1,239 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Solicitud de Ayuda - Fundación Esperanza</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f7f8;
-      margin: 0; padding: 0;
-      color: #333;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fundación Hope - Solicitud de Ayuda Económica</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 700px;
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .logo img {
+    max-width: 180px;
+    height: auto;
+  }
+  h1 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #2575fc;
+    text-align: center;
+  }
+  p.lead {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+    margin-top: 40px;
+  }
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .form-group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group.full {
+    flex: 1 1 100%;
+  }
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #34495e;
+  }
+  input, select, textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  button {
+    background-color: #2575fc;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(37,117,252,0.4);
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #1a54c8;
+  }
+  #mensaje {
+    margin-top: 25px;
+    text-align: center;
+    font-weight: 600;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    .form-group {
+      flex: 1 1 100%;
     }
-    header {
-      background-color: #3a7bd5;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-    }
-    header .logo {
-      font-weight: bold;
-      font-size: 1.4em;
-    }
-    header .menu a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    header .menu a:hover {
-      background-color: #2c5aa0;
-    }
-    main {
-      max-width: 700px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    h1 {
-      color: #2c5aa0;
-      text-align: center;
-    }
-    p.instruction {
-      text-align: center;
-      color: #555;
-      margin-bottom: 30px;
-      font-size: 1em;
-    }
-    form section {
-      margin-bottom: 25px;
-    }
-    form section h2 {
-      color: #3a7bd5;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #3a7bd5;
-      padding-bottom: 5px;
-    }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-    input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1em;
-      margin-bottom: 15px;
-      box-sizing: border-box;
-    }
-    textarea {
-      height: 100px;
-      resize: vertical;
-    }
-    .file-input {
-      margin-bottom: 15px;
-    }
-    .captcha {
-      margin: 20px 0;
-      display: flex;
-      align-items: center;
-    }
-    .captcha input[type=checkbox] {
-      margin-right: 10px;
-      width: 18px;
-      height: 18px;
-    }
-    button {
-      display: block;
-      width: 100%;
-      padding: 15px 0;
-      background-color: #3a7bd5;
-      color: white;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #2c5aa0;
-    }
-    @media (max-width: 600px) {
-      main {
-        margin: 20px 10px;
-        padding: 20px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      Fundación Esperanza<br />
-      <small>Ayudando a quienes más lo necesitan</small>
+
+<div class="container">
+  <div class="logo">
+    <img src="logo_hope.jpg" alt="Logo Fundación Hope" />
+  </div>
+  <h1>Solicitud de Ayuda Económica</h1>
+  <p class="lead">Te apoyamos con un impulso financiero mediante una subvención transparente y segura.</p>
+
+  <form id="formularioSolicitud" action="https://formspree.io/f/xgoqzbkg" method="POST" enctype="multipart/form-data">
+    <h2>Datos Personales</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
     </div>
-    <nav class="menu">
-      <a href="#">Inicio</a>
-      <a href="#">Contáctanos</a>
-    </nav>
-  </header>
-  <main>
-    <h1>Solicitud de Ayuda</h1>
-    <p class="instruction">Completa tus datos para verificar tu identidad y solicitar asistencia.</p>
-    <form>
-      <section>
-        <h2>Datos Personales</h2>
-        <label for="nombre">Nombre Completo</label>
-        <input type="text" id="nombre" name="nombre" required />
+    <div class="form-group">
+      <label for="documento">Documento de identidad:</label>
+      <input type="text" id="documento" name="documento" placeholder="DNI o Pasaporte" required />
+    </div>
+    <div class="form-group">
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" min="0" max="120" placeholder="Tu edad" required />
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Número de contacto" required />
+    </div>
+    <div class="form-group full">
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required placeholder="tuemail@ejemplo.com" />
+    </div>
+    <div class="form-group full">
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Calle, Ciudad, País" required />
+    </div>
 
-        <label for="documento">Número de Documento</label>
-        <input type="text" id="documento" name="documento" required />
+    <h2>Información Bancaria</h2>
+    <div class="form-group">
+      <label for="banco">Nombre del banco:</label>
+      <select id="banco" name="banco" required>
+        <option value="" disabled selected>Selecciona tu banco</option>
+        <option value="Banco A">Banco A</option>
+        <option value="Banco B">Banco B</option>
+        <option value="Banco C">Banco C</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cuenta">Número de cuenta:</label>
+      <input type="text" id="cuenta" name="cuenta" placeholder="Número de cuenta bancaria" required />
+    </div>
+    
+    <h2>Información de la Ayuda</h2>
+    <div class="form-group full">
+      <label for="tipoAyuda">Tipo de ayuda solicitada:</label>
+      <select id="tipoAyuda" name="tipoAyuda" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="Economica">Económica</option>
+        <option value="Alimentos">Alimentos</option>
+        <option value="Ropa">Ropa</option>
+        <option value="Medica">Ayuda médica</option>
+        <option value="Otra">Otra</option>
+      </select>
+    </div>
+    <div class="form-group full">
+      <label for="detalle">Descripción / cantidad:</label>
+      <textarea id="detalle" name="detalle" placeholder="Describe lo que necesitas" required></textarea>
+    </div>
+    <div class="form-group full">
+      <label for="comprobante">Adjuntar comprobante (opcional):</label>
+      <input type="file" id="comprobante" name="comprobante" accept=".jpg,.jpeg,.png,.pdf" />
+    </div>
 
-        <label for="fecha_nac">Fecha de Nacimiento</label>
-        <input type="date" id="fecha_nac" name="fecha_nac" required />
+    <h2>Confirmación</h2>
+    <div class="form-group full">
+      <label>
+        <input type="checkbox" name="terminos" required />  
+        Acepto que la información proporcionada es verdadera y autorizo su uso para la solicitud.
+      </label>
+    </div>
 
-        <label for="nacionalidad">Nacionalidad</label>
-        <select id="nacionalidad" name="nacionalidad" required>
-          <option value="" disabled selected>Selecciona tu nacionalidad</option>
-          <option value="argentina">Argentina</option>
-          <option value="mexicana">Mexicana</option>
-          <option value="colombiana">Colombiana</option>
-          <option value="chilena">Chilena</option>
-          <option value="otra">Otra</option>
-        </select>
-      </section>
+    <button type="submit">Enviar Solicitud</button>
+    <p id="mensaje"></p>
+  </form>
+</div>
 
-      <section>
-        <h2>Información de Contacto</h2>
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono" required />
+<script>
+  const form = document.getElementById('formularioSolicitud');
+  const mensaje = document.getElementById('mensaje');
 
-        <label for="correo">Correo Electrónico</label>
-        <input type="email" id="correo" name="correo" required />
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        <label for="direccion">Dirección</label>
-        <input type="text" id="direccion" name="direccion" required />
-      </section>
+    const formData = new FormData(form);
 
-      <section>
-        <h2>Situación Socioeconómica</h2>
-        <label for="estado_civil">Estado Civil</label>
-        <select id="estado_civil" name="estado_civil" required>
-          <option value="" disabled selected>Selecciona tu estado civil</option>
-          <option value="soltero">Soltero/a</option>
-          <option value="casado">Casado/a</option>
-          <option value="divorciado">Divorciado/a</option>
-          <option value="viudo">Viudo/a</option>
-          <option value="otro">Otro</option>
-        </select>
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {'Accept': 'application/json'}
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = 'espera_verificacion.html';
+      } else {
+        response.json().then(data => {
+          if (data.errors) {
+            mensaje.textContent = data.errors.map(error => error.message).join(', ');
+          } else {
+            mensaje.textContent = 'Error al enviar la solicitud.';
+          }
+          mensaje.style.color = '#e74c3c';
+        });
+      }
+    }).catch(() => {
+      mensaje.textContent = 'Error al enviar la solicitud. Por favor intenta de nuevo.';
+      mensaje.style.color = '#e74c3c';
+    });
+  });
+</script>
 
-        <label for="num_hijos">Número de Hijos</label>
-        <input type="text" id="num_hijos" name="num_hijos" required />
-
-        <label for="descripcion">Descripción de tu situación</label>
-        <textarea id="descripcion" name="descripcion" placeholder="Cuéntanos un poco sobre tu situación actual..." required></textarea>
-      </section>
-
-      <section>
-        <h2>Documentación</h2>
-        <label for="doc_identidad">Subir Foto de Documento de Identidad</label>
-        <input type="file" id="doc_identidad" name="doc_identidad" accept="image/*,application/pdf" required />
-
-        <label for="comprobante">Subir Comprobante de Domicilio</label>
-        <input type="file" id="comprobante" name="comprobante" accept="image/*,application/pdf" required />
-      </section>
-
-      <div class="captcha">
-        <input type="checkbox" id="captcha" name="captcha" required />
-        <label for="captcha">No soy un robot</label>
-      </div>
-
-      <button type="submit">Enviar Solicitud</button>
-    </form>
-  </main>
 </body>
 </html>
