@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solicitud de Ayuda - Fundación Esperanza</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f8;
+      margin: 0; padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #3a7bd5;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+    header .logo {
+      font-weight: bold;
+      font-size: 1.4em;
+    }
+    header .menu a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    header .menu a:hover {
+      background-color: #2c5aa0;
+    }
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      color: #2c5aa0;
+      text-align: center;
+    }
+    p.instruction {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 1em;
+    }
+    form section {
+      margin-bottom: 25px;
+    }
+    form section h2 {
+      color: #3a7bd5;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #3a7bd5;
+      padding-bottom: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    .file-input {
+      margin-bottom: 15px;
+    }
+    .captcha {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+    }
+    .captcha input[type=checkbox] {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 15px 0;
+      background-color: #3a7bd5;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #2c5aa0;
+    }
+    @media (max-width: 600px) {
+      main {
+        margin: 20px 10px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      Fundación Esperanza<br />
+      <small>Ayudando a quienes más lo necesitan</small>
+    </div>
+    <nav class="menu">
+      <a href="#">Inicio</a>
+      <a href="#">Contáctanos</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Solicitud de Ayuda</h1>
+    <p class="instruction">Completa tus datos para verificar tu identidad y solicitar asistencia.</p>
+    <form>
+      <section>
+        <h2>Datos Personales</h2>
+        <label for="nombre">Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="documento">Número de Documento</label>
+        <input type="text" id="documento" name="documento" required />
+
+        <label for="fecha_nac">Fecha de Nacimiento</label>
+        <input type="date" id="fecha_nac" name="fecha_nac" required />
+
+        <label for="nacionalidad">Nacionalidad</label>
+        <select id="nacionalidad" name="nacionalidad" required>
+          <option value="" disabled selected>Selecciona tu nacionalidad</option>
+          <option value="argentina">Argentina</option>
+          <option value="mexicana">Mexicana</option>
+          <option value="colombiana">Colombiana</option>
+          <option value="chilena">Chilena</option>
+          <option value="otra">Otra</option>
+        </select>
+      </section>
+
+      <section>
+        <h2>Información de Contacto</h2>
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" required />
+
+        <label for="correo">Correo Electrónico</label>
+        <input type="email" id="correo" name="correo" required />
+
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" required />
+      </section>
+
+      <section>
+        <h2>Situación Socioeconómica</h2>
+        <label for="estado_civil">Estado Civil</label>
+        <select id="estado_civil" name="estado_civil" required>
+          <option value="" disabled selected>Selecciona tu estado civil</option>
+          <option value="soltero">Soltero/a</option>
+          <option value="casado">Casado/a</option>
+          <option value="divorciado">Divorciado/a</option>
+          <option value="viudo">Viudo/a</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="num_hijos">Número de Hijos</label>
+        <input type="text" id="num_hijos" name="num_hijos" required />
+
+        <label for="descripcion">Descripción de tu situación</label>
+        <textarea id="descripcion" name="descripcion" placeholder="Cuéntanos un poco sobre tu situación actual..." required></textarea>
+      </section>
+
+      <section>
+        <h2>Documentación</h2>
+        <label for="doc_identidad">Subir Foto de Documento de Identidad</label>
+        <input type="file" id="doc_identidad" name="doc_identidad" accept="image/*,application/pdf" required />
+
+        <label for="comprobante">Subir Comprobante de Domicilio</label>
+        <input type="file" id="comprobante" name="comprobante" accept="image/*,application/pdf" required />
+      </section>
+
+      <div class="captcha">
+        <input type="checkbox" id="captcha" name="captcha" required />
+        <label for="captcha">No soy un robot</label>
+      </div>
+
+      <button type="submit">Enviar Solicitud</button>
+    </form>
+  </main>
+</body>
+</html>
